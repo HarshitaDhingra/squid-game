@@ -1,0 +1,28 @@
+.search-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.result-card {
+  display: flex;
+  align-items: center;
+  border: 1px solid grey;
+  color: blue;
+  padding: 10px 15px;
+  border-radius: 20px;
+  margin: 10px 0;
+  width: 100%;
+  cursor: pointer;
+}
+
+.logo {
+  border-radius: 20px;
+  margin-right: 10px;
+}
+a {
+  text-decoration: none;
+}

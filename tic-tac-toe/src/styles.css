@@ -1,0 +1,28 @@
+body {
+  font-family: sans-serif;
+}
+
+#app {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: 100px 100px 100px;
+  grid-template-rows: 100px 100px 100px;
+  width: 300px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.square {
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: red;
+  cursor: pointer;
+  font-size: 30px;
+  font-weight: bold;
+}
