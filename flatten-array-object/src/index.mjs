@@ -15,6 +15,28 @@ const flattenObject = (obj, keyName = "parent") => {
 flattenObject({ a: { b: { c: 2 }, d: 3 } });
 console.log(flattendObj);
 
+function unflatten(flat) {
+  let res = {};
+  for (let key in flat) {
+    key.split('.').reduce((acc, part, idx, arr) => {
+      if (idx === arr.length - 1) {
+        acc[part] = flat[key];
+      } else {
+        acc[part] = acc[part] || {};
+      }
+      return acc[part];
+    }, res);
+  }
+  return res;
+}
+
+// Example
+let flat = { "a.b.c": 1, d: 2 };
+console.log(unflatten(flat));
+// { a: { b: { c: 1 } }, d: 2 }
+
+
+
 // // Example 1:
 // Input: { a: { b: 1 } }
 // Output: { "a.b": 1 }
