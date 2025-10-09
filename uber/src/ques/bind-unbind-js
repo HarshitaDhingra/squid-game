@@ -1,0 +1,69 @@
+// Question Type: “Sequential Bind/Unbind Click”
+
+// You’re usually asked to bind a click handler to a button, but:
+
+// Each click should trigger a different behavior sequentially.
+
+// Once one behavior runs, the next click should perform the next behavior.
+
+// After the last one, it may either reset or stop.
+
+// Essentially: simulate a click sequence where event handlers are dynamically unbound and rebound — often without using global counters.
+
+// Example Problem Statement
+
+// Implement a button that, on first click logs "Step 1",
+// on second click logs "Step 2",
+// on third click logs "Step 3",
+// and then resets to "Step 1" again.
+// You must achieve this by sequentially unbinding/binding event listeners, not with if-else chains or counters.
+
+const button = document.getElementById('btn');
+
+function step1() {
+  console.log('Step 1');
+  button.removeEventListener('click', step1);
+  button.addEventListener('click', step2);
+}
+
+function step2() {
+  console.log('Step 2');
+  button.removeEventListener('click', step2);
+  button.addEventListener('click', step3);
+}
+
+function step3() {
+  console.log('Step 3');
+  button.removeEventListener('click', step3);
+  button.addEventListener('click', step1); // cycle back
+}
+
+button.addEventListener('click', step1);
+//
+// const button = document.getElementById('btn');
+
+// function step1() {
+//   console.log('Fetching Step 1...');
+//   button.removeEventListener('click', step1);
+//   setTimeout(() => {
+//     console.log('Step 1 complete');
+//     button.addEventListener('click', step2);
+//   }, 1000);
+// }
+
+// function step2() {
+//   console.log('Fetching Step 2...');
+//   button.removeEventListener('click', step2);
+//   setTimeout(() => {
+//     console.log('Step 2 complete');
+//     button.addEventListener('click', step3);
+//   }, 1000);
+// }
+
+// function step3() {
+//   console.log('Final Step 3');
+//   button.removeEventListener('click', step3);
+//   button.addEventListener('click', step1); // restart
+// }
+
+// button.addEventListener('click', step1);
